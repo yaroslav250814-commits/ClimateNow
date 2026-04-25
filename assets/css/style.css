@@ -1,0 +1,403 @@
+/* =============================================
+   FONT LOADING — Avenir Next (сFallback)
+============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Avenir+Next:wght@300;400;500;600;700&display=swap');
+
+/* =============================================
+   BASE RESET & GLOBAL STYLES
+============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  background-color: #1a1a1a;
+  background-image: url('../images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* =============================================
+   NAVBAR — STICKY AT TOP
+============================================= */
+.navbar {
+  background: linear-gradient(
+    180deg,
+    rgba(148, 148, 148, 0.9) 0%,
+    rgba(71, 71, 71, 0.9) 20%,
+    rgba(19, 19, 19, 0.9) 40%,
+    rgba(7, 7, 7, 0.93) 100%
+  );
+  border: 1px solid #4e4e4e;
+  border-top: 2px solid #4e4e4e;
+  border-radius: 0 0 80px 70px;
+  padding: 15px 10px 13px 30px;
+  backdrop-filter: blur(1px) saturate(150%);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 14px 28px, rgba(0, 0, 0, 0.22) 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  flex-shrink: 0;
+}
+
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo img:hover {
+  opacity: 0.9;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin: 0;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.nav-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-menu a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* =============================================
+   MOBILE ADAPTIVE — NAVBAR
+============================================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 15px 10px 15px;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .nav-menu a {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .nav-logo {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* =============================================
+   MAIN CONTENT — FLEX GROW TO FILL SPACE
+============================================= */
+.container {
+  flex: 1;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* —— ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ ПАНЕЛЕЙ —— */
+.container h1,
+.container h2,
+.container h3,
+.container p,
+.container blockquote,
+.container ul,
+.container ol,
+.container li,
+.container .back-link,
+.container footer a,
+.container a {
+  color: #ffffff;
+  font-size: 14px;
+  font-family: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* —— Особые стили для заголовков —— */
+.container h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  padding: 1.8rem 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.container h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  padding: 1.5rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.container h3 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding: 1.2rem 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+/* —— Стили для абзацев —— */
+.container p {
+  line-height: 1.7;
+}
+
+/* —— Стили для ссылки "Назад" —— */
+.container .back-link {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.container .back-link:hover {
+  color: #e0e0e0;
+  text-decoration: underline;
+}
+
+/* —— Стили для цитат —— */
+.container blockquote {
+  font-style: italic;
+  border-left: 4px solid #5a5a5a;
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem 1.2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.container blockquote footer {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #a0a0a0;
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+/* —— Стили для списков —— */
+.container ul,
+.container ol {
+  padding-left: 1.8rem;
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.container ul li,
+.container ol li {
+  margin-bottom: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.container ul li::before {
+  content: "•";
+  color: #ffffff;
+  position: absolute;
+  left: -1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.container ol li::before {
+  content: counter(list-item) ".";
+  color: #ffffff;
+  position: absolute;
+  left: -1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  counter-increment: list-item;
+}
+
+/* =============================================
+   FOOTER — AT THE BOTTOM OF CONTENT (NOT STICKY!)
+============================================= */
+footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 10px 13px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    0deg,
+    rgba(7, 7, 7, 0.93) 0%,
+    rgba(19, 19, 19, 0.9) 40%,
+    rgba(71, 71, 71, 0.9) 80%,
+    rgba(148, 148, 148, 0.9) 100%
+  );
+  border: 1px solid #4e4e4e;
+  border-bottom: 2px solid #4e4e4e;
+  border-radius: 80px 70px 0 0;
+  backdrop-filter: blur(1px) saturate(150%);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 -14px 28px, rgba(0, 0, 0, 0.22) 0 -10px 10px;
+  font-size: 1rem;
+  color: #fff;
+  /* 👇 УБРАЛИ position: sticky; bottom: 0; — именно это делало подвал "прилипающим" */
+}
+
+.footer-logo {
+  flex-shrink: 0;
+}
+
+.footer-logo img {
+  height: 40px;
+  width: auto;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo img:hover {
+  opacity: 0.9;
+}
+
+.footer-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-menu li {
+  margin: 0;
+}
+
+.footer-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.footer-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(2px);
+}
+
+.footer-menu a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* —— Ссылки внутри подвала —— */
+footer a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+footer a:hover {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+/* =============================================
+   MOBILE ADAPTIVE — FOOTER
+============================================= */
+@media (max-width: 768px) {
+  footer {
+    padding: 12px 15px 10px 15px;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+  }
+
+  .footer-menu ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .footer-menu a {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .footer-logo {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* =============================================
+   EXTRA: LINKS IN CONTENT — CONSISTENT STYLE
+============================================= */
+.container a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.container a:hover {
+  color: #e0e0e0;
+  text-decoration: none;
+}
